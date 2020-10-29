@@ -1,0 +1,25 @@
+<div class="page-header">
+  <div class="row">
+    <div class="col">
+      <%%= link_to <%= index_helper %>_path, class: 'btn btn-light' do %>
+        <i class="fa fa-angle-left"></i>
+        All <%= plural_table_name.capitalize %>
+      <%% end %>
+    </div>
+    <div class="col text-right">
+      <%%= link_to "Edit", edit_<%= singular_table_name %>_path(@<%= singular_table_name %>), class: 'btn btn-primary' %>
+    </div>
+  </div>
+  <h1>Show <%= singular_table_name %></h1>
+</div>
+
+<div class="card">
+  <div class="card-body">
+    <dl class="dl-horizontal">
+      <%- attributes.each do |attribute| -%>
+      <dt><%= attribute.human_name %>:</dt>
+      <dd><%%= @<%= singular_table_name %>.<%= attribute.name %> %></dd>
+      <%- end -%>
+    </dl>
+  </div>
+</div>

@@ -1,0 +1,52 @@
+require:
+  - rubocop-rails
+  - rubocop-rspec
+
+AllCops:
+  NewCops: enable
+  DisplayCopNames: true
+  TargetRubyVersion: 2.7.2
+  Include:
+    - '**/*.rb'
+    - '**/*.rake'
+    - '**/*.spec'
+    - '**/Gemfile'
+  Exclude:
+    - bin/**
+    - node_modules/**/*
+    - db/schema.rb
+
+Style/FrozenStringLiteralComment:
+  Enabled: true
+
+Style/RedundantFetchBlock:
+  Safe: true
+
+Style/Documentation:
+  Enabled: false
+
+Metrics/MethodLength:
+  CountAsOne:
+  - array
+  - hash
+  - heredoc
+  Exclude:
+    - db/**/*
+
+Metrics/AbcSize:
+  Exclude:
+    - db/**/*
+
+Metrics/BlockLength:
+  Exclude:
+    - db/**/*
+    - spec/**/*_spec.rb
+    - lib/tasks/*.rake
+    - config/environments/*.rb
+
+Rails:
+  Enabled: true
+
+Layout/HashAlignment:
+  EnforcedHashRocketStyle: table
+  EnforcedColonStyle: table

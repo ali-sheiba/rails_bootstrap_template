@@ -1,0 +1,35 @@
+<div class="row">
+  <div class="col-sm-6">
+    <h1><%= plural_table_name.capitalize %></h1>
+  </div>
+
+  <div class="col-sm-6 text-right">
+    <%%= link_to "Add New <%= human_name %>", new_<%= singular_table_name %>_path, class: 'btn btn-primary' %>
+  </div>
+</div>
+
+<div class="card mb-3">
+  <div class="table-responsive">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <%- attributes.each do |attribute| -%>
+          <th><%= attribute.human_name %></th>
+          <%- end -%>
+          <th></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <%% @<%= plural_table_name%>.each do |<%= singular_table_name %>| %>
+          <%%= content_tag :tr, id: dom_id(<%= singular_table_name %>), class: dom_class(<%= singular_table_name %>) do %>
+            <%- attributes.each do |attribute| -%>
+            <td><%%= <%= singular_table_name %>.<%= attribute.name %> %></td>
+            <%- end -%>
+            <td><%%= link_to 'Show', <%= singular_table_name %> %></td>
+          <%% end %>
+        <%% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
