@@ -37,6 +37,13 @@ for testing and development:
 - shoulda-matchers
 - timecop
 
+for javascript:
+
+- bootstrap 4.5.x
+- jquery
+- popper.js
+- @fortawesome/fontawesome-free
+
 ### Bootstrap
 
 the template will setup bootstrap with minimum requirement, devise bootstrap and it will provide scaffold generator using bootstrap also.
